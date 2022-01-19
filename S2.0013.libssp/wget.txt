@@ -1,0 +1,1 @@
+https://gitlab.com/watched/gcc-mirror/gcc/-/archive/releases/gcc-7.3.0/gcc-releases-gcc-7.3.0.tar.bz2?path=libssp
