@@ -4,5 +4,8 @@ AUTHOR="Watthanachai Dueanklang"
 
 _default_msvcrt=msvcrt
 #_default_msvcrt=ucrt
+
 X_THREAD=posix
+
 LLVM_PROJECTS="clang;lld;lldb"
+#LLVM_PROJECTS="clang;clang-tools-extra;lld;lldb;mlir"

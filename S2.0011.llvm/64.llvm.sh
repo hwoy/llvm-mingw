@@ -119,7 +119,7 @@ build()
 	$BUILDCMD -j${JOBS}
 	$BUILDCMD install
 
-# "clang;clang-tools-extra;lld;lldb;mlir"
+
 
 	# Cleanup.
 	cd ${X_BUILDDIR}
