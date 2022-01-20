@@ -29,9 +29,9 @@ build()
 	# " /c" works around https://github.com/msys2/MSYS2-packages/issues/1606
 	cmd " /c" "build_w32.bat" --x86 "clang"
 	llvm-strip -s clangRel/gnumake.exe
-	mv clangRel/gnumake.exe ../dest/bin/mingw32-make.exe
 	# mingw32-make.exe is for CMake.
-	mv ../dest/bin/make.exe ../dest/bin/mingw32-make.exe
+	mv clangRel/gnumake.exe ../dest/bin/mingw32-make.exe
+	
 	cd ${X_BUILDDIR}
 	rm -rf src
 
