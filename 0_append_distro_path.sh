@@ -15,9 +15,9 @@ export NEW_DISTRO_ROOT=/c/${PROJECTNAME}
 export X_DISTRO_ROOT=/c/Temp/msys64/mingw64
 #export X_DISTRO_ROOT=${NEW_DISTRO_ROOT}
 
-export LDFLAGS=" "
-export CFLAGS=" "
-export CXXFLAGS=" "
+export LDFLAGS=""
+export CFLAGS=""
+export CXXFLAGS=""
 
 source ../0_common.sh
 

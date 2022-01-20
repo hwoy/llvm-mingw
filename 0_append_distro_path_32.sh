@@ -13,11 +13,11 @@ export X_TARGET=${X_BUILD}
 
 export NEW_DISTRO_ROOT=/c/${PROJECTNAME}
 export X_DISTRO_ROOT=/c/Temp/msys64/mingw32
-export X_DISTRO_ROOT=${NEW_DISTRO_ROOT}
+#export X_DISTRO_ROOT=${NEW_DISTRO_ROOT}
 
 export LDFLAGS="-Wl,--large-address-aware"
-export CFLAGS=" "
-export CXXFLAGS=" "
+export CFLAGS=""
+export CXXFLAGS=""
 
 source ../0_common.sh
 
