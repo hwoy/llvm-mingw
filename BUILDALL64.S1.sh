@@ -16,6 +16,4 @@ cd ..
 rm -rf ${STAGE1}
 mkdir -p ${STAGE1}
 
-buildpkg S1.0001.binutils 64.binutils.sh ${STAGE1}
-
-buildpkg S1.0002.gcc 64.gcc.sh ${STAGE1}
+buildpkg S1.0001.llvm 64.llvm.sh ${STAGE1}
