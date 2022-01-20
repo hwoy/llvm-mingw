@@ -23,7 +23,7 @@ echo "\`\`\`" > ${FILE}
 echo "Distro name: ${PROJ}" >> ${FILE}
 echo "Created by: ${AUTHOR}" >> ${FILE}
 echo "Reversion: ${REV}" >> ${FILE}
-echo "Compilers: ${_languages}" >> ${FILE}
+echo "Compilers: C/C++" >> ${FILE}
 echo "Thread: ${X_THREAD} in MinGW-w64,native in libc++" >> ${FILE}
 echo "Exception: SEH for 64 and Dwarf-2 for 32" >> ${FILE}
 echo "Libc: ${_default_msvcrt}" >> ${FILE}
