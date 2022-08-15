@@ -4,13 +4,10 @@ export X_DISTRO_INC=$X_DISTRO_ROOT/include
 export X_DISTRO_LIB=$X_DISTRO_ROOT/lib
 
 export PATH=$X_DISTRO_BIN:$PATH
-export C_INCLUDE_PATH=$X_DISTRO_INC
-export CPLUS_INCLUDE_PATH=$X_DISTRO_INC
 
 export X_BASEDIR=/c/Temp/MinGW-Base
 export X_SRCDIR=${X_BASEDIR}/Sources
 export X_BUILDDIR=${X_BASEDIR}/Builds
-#export X_BUILDDIR=/c/Users/Hwoy/Desktop/noobgw64
 
 
 JOBS=${NUMBER_OF_PROCESSORS}
