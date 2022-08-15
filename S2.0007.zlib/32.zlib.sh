@@ -3,7 +3,7 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=zlib
-SVERSION=1.2.11
+SVERSION=1.2.12
 
 decompress()
 {
@@ -17,6 +17,7 @@ prepare()
 	apply_patch_p1 01-zlib-1.2.11-1-buildsys.mingw.patch
 	apply_patch_p2 03-dont-put-sodir-into-L.mingw.patch
 	apply_patch_p1 04-fix-largefile-support.patch
+	apply_patch_p1 607.patch
 
 	cd ..
 }
@@ -38,6 +39,8 @@ build()
 	cmake \
 		${CMAKE_GENERATOR+-G} "$CMAKE_GENERATOR" \
 		"-DCMAKE_BUILD_TYPE=Release" \
+		"-DCMAKE_C_COMPILER=clang" \
+		"-DCMAKE_CXX_COMPILER=clang++" \
 		"-DCMAKE_C_FLAGS=-O2 -DTOO_FAR=32767" \
 		"-DCMAKE_INSTALL_PREFIX=${NEW_DISTRO_ROOT}" \
 		$CMAKEFLAGS \

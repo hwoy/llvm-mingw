@@ -2,7 +2,7 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=llvm
-SVERSION=13.0.0
+SVERSION=14.0.6
 
 
 # Extract vanilla sources.
@@ -35,6 +35,13 @@ apply_patch_p1_lld() {
 	done
 }
 
+apply_patch_p1_extra() {
+	for _patch in "$@"
+	do
+		patch -d ${X_BUILDDIR}/${SNAME}-${SVERSION}/clang-tools-extra -p1 < "${_patch}"
+	done
+}
+
 
 
 decompress()
@@ -50,22 +57,32 @@ prepare()
 	cd patch
 
 	apply_patch_p1_llvm \
-		"0001-Use-posix-style-path-separators-with-MinGW.patch" \
-		"0002-Fix-GetHostTriple-for-mingw-w64-in-msys.patch"
-
-	apply_reverse_patch_p1_llvm \
-		"0003-CMake-try-creating-symlink-first-on-windows.patch"
+    "0002-Fix-GetHostTriple-for-mingw-w64-in-msys.patch" \
+    "0003-Revert-CMake-try-creating-symlink-first-on-windows.patch"
+	
+#No clang
+	#apply_patch_p1_llvm \
+    #"0005-add-pthread-as-system-lib-for-mingw.patch" \
+    #"0008-enable-emutls-for-mingw.patch"
 
 	apply_patch_p1_llvm \
-		"0009-export-out-of-tree-mlir-targets.patch"
+    "0009-export-out-of-tree-mlir-targets.patch" \
+    "0010-lldb-Fix-building-standalone-LLDB-on-Windows.patch" \
+    "0011-MinGW-Don-t-currently-set-visibility-hidden-when-bui.patch" \
+    "0012-COFF-Emit-embedded-exclude-symbols-directives-for-hi.patch"
 
-	apply_patch_p1_clang \
-		"0101-Disable-fPIC-errors.patch" \
-		"0103-Use-posix-style-path-separators-with-MinGW.patch" \
-		"0105-clang-Tooling-Use-Windows-command-lines.patch"
+#No clang
+	#apply_patch_p1_clang \
+	#"0104-link-pthread-with-mingw.patch"
 
 	apply_patch_p1_lld \
-		"0304-ignore-new-bfd-options.patch"
+    "0304-ignore-new-bfd-options.patch" \
+    "0301-LLD-COFF-Add-support-for-a-new-mingw-specific-embedd.patch" \
+    "0302-LLD-MinGW-Implement-the-exclude-symbols-option.patch"
+
+
+	apply_patch_p1_extra \
+	"0405-Do-not-try-to-build-CTTestTidyModule-for-Windows-with-dylibs.patch"
 
 
 	cd ..

@@ -3,7 +3,7 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=mingw-w64
-SVERSION=v9.0.0
+SVERSION=v10.0.0
 
 # Extract vanilla sources.
 

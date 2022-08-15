@@ -3,7 +3,7 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=mingw-w64
-SVERSION=v9.0.0
+SVERSION=v10.0.0
 
 # Extract vanilla sources.
 
@@ -19,7 +19,7 @@ prepare()
 	apply_patch_p1 Define-__-de-register_frame_info-in-fake-libgcc_s.patch
 	cd ..
 
-	cd ${X_BUILDDIR}/mingw-w64-v9.0.0/mingw-w64-libraries/winpthreads
+	cd ${X_BUILDDIR}/mingw-w64-${SVERSION}/mingw-w64-libraries/winpthreads
 	autoreconf -vfi
 }
 

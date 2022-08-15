@@ -2,7 +2,7 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=libiconv
-SVERSION=1.16
+SVERSION=1.17
 
 decompress()
 {
@@ -13,7 +13,6 @@ prepare()
 {
 	cd patch
 
-	apply_patch_p1 0001-compile-relocatable-in-gnulib.mingw.patch
 	apply_patch_p1 0002-fix-cr-for-awk-in-configure.all.patch
 	apply_patch_p1 fix-pointer-buf.patch
 
@@ -54,7 +53,7 @@ build()
 	rm -rf ${SNAME}-${SVERSION}-${X_HOST}-${X_THREAD}-${_default_msvcrt}-${REV}
 	mv dest ${SNAME}-${SVERSION}-${X_HOST}-${X_THREAD}-${_default_msvcrt}-${REV}
 	cd ${SNAME}-${SVERSION}-${X_HOST}-${X_THREAD}-${_default_msvcrt}-${REV}
-	rm -rf bin/*.exe
+	rm -rf ${PROJECTNAME}/bin/*.exe
 
 	zip7 ${SNAME}-${SVERSION}-${X_HOST}-${X_THREAD}-${_default_msvcrt}-${REV}.7z
 

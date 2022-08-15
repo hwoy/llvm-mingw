@@ -40,7 +40,7 @@ build()
 	mkdir build dest
 	cd build
 
-	make -f ../src/${SNAME}/Makefile
+	CC=clang CXX=clang++ make -f ../src/${SNAME}/Makefile
 
 	mkdir -p ${X_BUILDDIR}/dest/{bin,lib}
 	cp -f *.a "${X_BUILDDIR}/dest/lib"

@@ -2,11 +2,11 @@
 source ../0_append_distro_path_32.sh
 
 SNAME=libxml2
-SVERSION=2.9.12
+SVERSION=2.9.14
 
 decompress()
 {
-	untar_file ${SNAME}-${SVERSION}.tar.gz
+	untar_file ${SNAME}-${SVERSION}.tar.xz
 }
 
 prepare()
@@ -16,19 +16,23 @@ prepare()
 	cd patch
 
 	apply_patch_p1 \
-		0015-fix-unused-parameters-warning.all.patch \
-		0016-WARNING-to-be-fixed.all.patch \
-		0019-unused-flags.all.patch \
-		0020-fix-warnings.patch \
-		0023-fix-sitedir-detection.mingw.patch \
-		0026-mingw-relocate.patch \
-		libxml2-2.9.9-python.patch \
-		libxml2-disable-version-script.patch
+    0015-fix-unused-parameters-warning.all.patch \
+    0016-WARNING-to-be-fixed.all.patch \
+    0019-unused-flags.all.patch \
+    0020-fix-warnings.patch \
+    0023-fix-sitedir-detection.mingw.patch \
+    0026-mingw-relocate.patch \
+    0030-pkgconfig-add-Cflags-private.patch \
+    libxml2-disable-version-script.patch
 
   # https://gitlab.gnome.org/GNOME/libxml2/-/issues/64
   # https://github.com/msys2/MINGW-packages/issues/7955
   apply_patch_p1 \
 	  0027-decoding-segfault.patch
+	  
+  # https://github.com/msys2/MINGW-packages/issues/10577
+  apply_patch_p1 \
+    0029-xml2-config-win-paths.patch
 
   cd ..
 

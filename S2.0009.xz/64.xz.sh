@@ -2,7 +2,7 @@
 source ../0_append_distro_path.sh
 
 SNAME=xz
-SVERSION=5.2.5
+SVERSION=5.2.6
 
 decompress()
 {
